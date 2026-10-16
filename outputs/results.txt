@@ -1,0 +1,105 @@
+Exported from saved notebook outputs; no training was rerun.
+
+Notebook cell 35
+Selected using validation loss: SGD + Momentum
+        Optimizer  Final Validation Loss  Final Validation Accuracy
+0            Adam               0.571803                   0.790190
+1             SGD               2.190192                   0.163810
+2  SGD + Momentum               0.487881                   0.821238
+
+Notebook cell 45
+Accuracy: 0.9081904761904762
+Precision: 0.9095512420855433
+Recall: 0.9081904761904762
+
+
+Notebook cell 49
+Accuracy: 0.8176190476190476
+Precision: 0.8180088789725682
+Recall: 0.8176190476190476
+
+
+Notebook cell 53
+Model A size: 861.1796875 KiB
+Model B size: 83.7666015625 KiB
+
+
+Notebook cell 55
+     Model  Parameters  Model Size (KiB)  Time per Epoch (s)  Test Accuracy  \
+0  Model A      105866        861.179688            3.325511       0.908190   
+1  Model B        5539         83.766602            3.920353       0.817619   
+
+   Precision    Recall  
+0   0.909551  0.908190  
+1   0.818009  0.817619  
+
+Notebook cell 67
+Accuracy: 0.8799047470092773
+Precision: 0.8801718654886916
+Recall: 0.8799047619047619
+Parameters: 2270794
+              precision    recall  f1-score   support
+
+ T-shirt/top       0.85      0.80      0.82      1050
+     Trouser       0.98      0.97      0.97      1050
+    Pullover       0.84      0.81      0.82      1050
+       Dress       0.84      0.89      0.86      1050
+        Coat       0.77      0.85      0.81      1050
+      Sandal       0.96      0.95      0.95      1050
+       Shirt       0.71      0.68      0.70      1050
+     Sneaker       0.92      0.93      0.93      1050
+         Bag       0.98      0.97      0.97      1050
+  Ankle boot       0.96      0.96      0.96      1050
+
+    accuracy                           0.88     10500
+   macro avg       0.88      0.88      0.88     10500
+weighted avg       0.88      0.88      0.88     10500
+
+
+
+Notebook cell 68
+MobileNetV2 size: 18.535822868347168 MiB
+
+
+Notebook cell 76
+Accuracy: 0.8926666378974915
+Precision: 0.8927181597794371
+Recall: 0.8926666666666667
+Parameters: 4062381
+              precision    recall  f1-score   support
+
+ T-shirt/top       0.85      0.83      0.84      1050
+     Trouser       0.99      0.98      0.98      1050
+    Pullover       0.86      0.83      0.84      1050
+       Dress       0.87      0.91      0.89      1050
+        Coat       0.84      0.86      0.85      1050
+      Sandal       0.97      0.94      0.95      1050
+       Shirt       0.72      0.70      0.71      1050
+     Sneaker       0.92      0.96      0.94      1050
+         Bag       0.97      0.97      0.97      1050
+  Ankle boot       0.96      0.95      0.95      1050
+
+    accuracy                           0.89     10500
+   macro avg       0.89      0.89      0.89     10500
+weighted avg       0.89      0.89      0.89     10500
+
+
+
+Notebook cell 77
+EfficientNetB0 size: 26.71912670135498 MiB
+
+
+Notebook cell 79
+SOTA epoch timing is not benchmarked; NaN means not reported.
+All four confusion matrices and per-class metrics appear above.
+            Model  Parameters  Archive Size (MiB)  Average Fit Epoch (s)  \
+0         Model A      105866            0.840996               3.325511   
+1         Model B        5539            0.081803               3.920353   
+2     MobileNetV2     2270794           18.535823                    NaN   
+3  EfficientNetB0     4062381           26.719127                    NaN   
+
+   Test Accuracy  Weighted Precision  Weighted Recall  Kernel MACs/image  
+0       0.908190            0.909551         0.908190            1117056  
+1       0.817619            0.818009         0.817619             265008  
+2       0.879905            0.880172         0.879905           24461312  
+3       0.892667            0.892718         0.892667           31979392  
