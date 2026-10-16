@@ -13,113 +13,9 @@ The **Fashion-MNIST** dataset was used for the experiments. Two custom CNN archi
 
 The models were trained using **TensorFlow/Keras in Google Colab** and later converted to **TensorFlow Lite (TFLite)** for deployment and evaluation on a **Raspberry Pi**.
 
----
+The project uses the **Fashion-MNIST** dataset.Each image is a grayscale clothing image with a resolution of 28 × 28 × 1 with 10 classes.
 
-## Dataset
-
-The project uses the **Fashion-MNIST** dataset.
-
-Each image is a grayscale clothing image with a resolution of:
-
-```text
-28 × 28 × 1
-```
-
-The dataset contains 10 classes.
-
-For the custom models, the original `28 × 28 × 1` images were used.
-
-For MobileNetV2 and EfficientNetB0, the images were resized to:
-
-```text
-64 × 64 × 3
-```
-
-The grayscale images were converted to three channels in order to match the input format expected by the pre-trained models.
-
-The dataset was divided into:
-
-```text
-Training    : 70%
-Validation  : 15%
-Testing     : 15%
-```
-
----
-
-## Model A – Standard CNN
-
-Model A was designed using standard convolution layers.
-
-Main structure:
-
-```text
-Input
- ↓
-Conv2D
- ↓
-MaxPooling
- ↓
-Conv2D
- ↓
-MaxPooling
- ↓
-Flatten / Feature Processing
- ↓
-Dense Layers
- ↓
-10-Class Output
-```
-
-Model A provides a baseline for comparison with the lightweight Model B.
-
----
-
-## Model B – Lightweight CNN
-
-Model B was designed specifically for resource-constrained edge devices.
-
-Instead of normal convolution operations, it mainly uses **Depthwise Separable Convolutions**.
-
-These separate a standard convolution into:
-
-```text
-Depthwise Convolution
-        ↓
-Pointwise 1 × 1 Convolution
-```
-
-This significantly reduces the number of trainable parameters and computational requirements.
-
-Model B contains approximately:
-
-```text
-5,539 trainable parameters
-```
-
-which is well below the project requirement of:
-
-```text
-100,000 parameters
-```
-
----
-
-## Pre-trained Lightweight Models
-
-Two existing lightweight architectures were also evaluated.
-
-### MobileNetV2
-
-MobileNetV2 is designed for mobile and edge applications. It uses efficient convolution operations and inverted residual blocks to reduce computational cost while maintaining good classification performance.
-
-### EfficientNetB0
-
-EfficientNetB0 is a compact architecture that balances network depth, width and input resolution to obtain high classification accuracy with relatively efficient computation.
-
----
-
-# Training and Deployment Workflow
+# Workflow
 
 ```text
 Fashion-MNIST
@@ -142,42 +38,12 @@ Measure
  ├── Peak RAM
  └── Model Size
 ```
-
----
-
-# Raspberry Pi Deployment
-
-All four trained models were converted to the `.tflite` format and executed on the Raspberry Pi using TensorFlow Lite.
-
-The Raspberry Pi experiment used:
-
-```text
-100 test images
-Batch size = 1
-CPU inference
-TensorFlow Lite XNNPACK delegate
-```
-
-For Model A and Model B, the input shape was:
-
-```text
-1 × 28 × 28 × 1
-```
-
-For MobileNetV2 and EfficientNetB0, the input shape was:
-
-```text
-1 × 64 × 64 × 3
-```
-
----
-
-# Raspberry Pi Results
+# Results
 
 <table>
 <tr>
 <td align="center">
-<img src="images/modelA.jpg" width="230">
+<img src="img/modelA.jpg" width="230">
 </td>
 
 <td align="center">
@@ -203,7 +69,7 @@ For MobileNetV2 and EfficientNetB0, the input shape was:
 
 ---
 
-## Target-Device Comparison
+## Comparison
 
 | Model | Accuracy* | Mean Inference Latency | Peak RAM | TFLite Model Size |
 |---|---:|---:|---:|---:|
@@ -227,7 +93,3 @@ The experiment demonstrates that no single architecture is best for every requir
 | Good accuracy with moderate edge requirements | **MobileNetV2** |
 | Highest accuracy among tested models | **EfficientNetB0** |
 
-The custom lightweight Model B provides the strongest resource-efficiency characteristics, while the larger pre-trained models provide higher classification accuracy at the cost of greater memory, storage and inference time.
-
-
-**EN3150 – Pattern Recognition**
